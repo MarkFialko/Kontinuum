@@ -1,0 +1,12 @@
+.menu__list {
+    display: flex;
+    align-items: center;
+    gap: 21px;
+}
+
+@media (max-width: 991.98px) {
+    .menu__list {
+        flex-direction: column;
+        padding: 15px;
+    }
+}

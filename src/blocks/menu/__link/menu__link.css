@@ -1,0 +1,32 @@
+.menu__link {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #434242;
+    padding: 39px 10px 39px 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu__link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    transition: background-color .3s ease-in-out;
+}
+
+.menu__link:hover::before {
+    background-color: #434242;
+}
+
+@media (max-width: 991.98px) {
+    .menu__link {
+        padding: 0px;
+        width: 100%;
+    }
+}
