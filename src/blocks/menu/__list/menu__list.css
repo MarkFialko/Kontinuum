@@ -8,5 +8,6 @@
     .menu__list {
         flex-direction: column;
         padding: 15px;
+        gap: 0;
     }
 }
