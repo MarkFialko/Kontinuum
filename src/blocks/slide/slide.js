@@ -1,0 +1,69 @@
+import {bodyUnlock} from "../body/__unlock/bodyUnlock.js";
+import {bodyLock} from "../body/__lock/bodyLock.js";
+import {activateMenu} from "../menu/__activate/activateMenu.js";
+import {deactivateMenu} from "../menu/__deactivate/deactivateMenu.js";
+
+let _slideUp = (target, duration = 500, showmore = 0) => {
+    bodyUnlock();
+    target.style.transitionProperty = 'height, margin, padding';
+    target.style.transitionDuration = duration + 'ms';
+    target.style.height = `${target.offsetHeight}px`;
+    target.offsetHeight;
+    target.style.overflow = 'hidden';
+    target.style.height = showmore ? `${showmore}px` : `0px`;
+    target.style.paddingTop = 0;
+    target.style.paddingBottom = 0;
+    target.style.marginTop = 0;
+    target.style.marginBottom = 0;
+    window.setTimeout(() => {
+        target.hidden = !showmore ? true : false;
+        !showmore ? target.style.removeProperty('height') : null;
+        target.style.removeProperty('padding-top');
+        target.style.removeProperty('padding-bottom');
+        target.style.removeProperty('margin-top');
+        target.style.removeProperty('margin-bottom');
+        !showmore ? target.style.removeProperty('overflow') : null;
+        target.style.removeProperty('transition-duration');
+        target.style.removeProperty('transition-property');
+    }, duration);
+    return true;
+}
+let _slideDown = (target, duration = 500, showmore = 0) => {
+    bodyLock();
+    target.hidden = target.hidden ? false : null;
+    showmore ? target.style.removeProperty('height') : null;
+    let height = target.offsetHeight;
+    target.style.overflow = 'hidden';
+    target.style.height = showmore ? `${showmore}px` : `0px`;
+    target.style.paddingTop = 0;
+    target.style.paddingBottom = 0;
+    target.style.marginTop = 0;
+    target.style.marginBottom = 0;
+    target.offsetHeight;
+    target.style.transitionProperty = "height, margin, padding";
+    target.style.transitionDuration = duration + 'ms';
+    target.style.height = height + 'px';
+    target.style.removeProperty('padding-top');
+    target.style.removeProperty('padding-bottom');
+    target.style.removeProperty('margin-top');
+    target.style.removeProperty('margin-bottom');
+    window.setTimeout(() => {
+        target.style.removeProperty('height');
+        target.style.removeProperty('overflow');
+        target.style.removeProperty('transition-duration');
+        target.style.removeProperty('transition-property');
+        target.classList.remove('_slide');
+    }, duration);
+    return false;
+}
+let _slideToggle = (target, duration = 500) => {
+    if (target.hidden) {
+        activateMenu();
+        return _slideDown(target, duration);
+    } else {
+        deactivateMenu();
+        return _slideUp(target, duration);
+    }
+}
+
+export {_slideUp, _slideToggle, _slideDown};
