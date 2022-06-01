@@ -1,10 +1,7 @@
-import {bodyUnlock} from "../body/__unlock/bodyUnlock.js";
-import {bodyLock} from "../body/__lock/bodyLock.js";
 import {activateMenu} from "../menu/__activate/activateMenu.js";
 import {deactivateMenu} from "../menu/__deactivate/deactivateMenu.js";
 
 let _slideUp = (target, duration = 500, showmore = 0) => {
-    bodyUnlock();
     target.style.transitionProperty = 'height, margin, padding';
     target.style.transitionDuration = duration + 'ms';
     target.style.height = `${target.offsetHeight}px`;
@@ -29,7 +26,6 @@ let _slideUp = (target, duration = 500, showmore = 0) => {
     return true;
 }
 let _slideDown = (target, duration = 500, showmore = 0) => {
-    bodyLock();
     target.hidden = target.hidden ? false : null;
     showmore ? target.style.removeProperty('height') : null;
     let height = target.offsetHeight;
