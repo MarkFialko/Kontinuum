@@ -1,5 +1,5 @@
 import {_slideUp, _slideToggle, _slideDown} from "./../blocks/slide/slide.js";
-import {deactivateMenu} from "../blocks/menu/__deactivate/deactivateMenu.js";
+import {deactivateMenu} from "./../blocks/menu/__deactivate/deactivateMenu.js";
 import {
     headerContainer,
     menuContainer,
@@ -8,8 +8,13 @@ import {
     header,
     menuBody,
     menuButton,
-    width
+    width,
+    phoneInput,
+    changeButton,
+    mainForm
 } from "./../blocks/elements/elements.js"
+import {onPhoneInput, onPhoneKeyDown, onPhonePaste} from "./../blocks/validate/validate.js";
+import {changeDataPassword, changeInputs, changeButtonInput} from "./../blocks/change/change.js";
 
 let fromGreater = true;
 
@@ -47,4 +52,15 @@ window.addEventListener("resize", () => {
 menuButton.addEventListener('click', (e) => {
     _slideToggle(menuBody);
     e.preventDefault();
+})
+
+phoneInput.addEventListener("input", onPhoneInput);
+phoneInput.addEventListener("keydown", onPhoneKeyDown);
+phoneInput.addEventListener("paste", onPhonePaste);
+
+changeButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    changeDataPassword(mainForm);
+    changeInputs(mainForm);
+    changeButtonInput();
 })

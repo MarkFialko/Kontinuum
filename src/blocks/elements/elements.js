@@ -6,5 +6,20 @@ const header = document.querySelector("header");
 const menuBody = document.querySelector(".menu__body");
 const menuButton = document.querySelector(".menu__icon");
 const width = window.screen.width;
+const phoneInput = document.querySelector("[data-phone]");
+const mainForm = document.querySelector(".form-group");
+const changeButton = document.querySelector(".main-form__change");
 
-export {headerContainer,menuContainer,menuList,headerButton,header,menuBody,menuButton,width};
+export {
+    headerContainer,
+    menuContainer,
+    menuList,
+    headerButton,
+    header,
+    menuBody,
+    menuButton,
+    width,
+    phoneInput,
+    mainForm,
+    changeButton
+};
