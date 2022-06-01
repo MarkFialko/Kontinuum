@@ -1,7 +1,3 @@
 body {
     font-family: "Montserrat";
 }
-body .lock {
-    overflow: hidden;
-    touch-action: none;
-}
