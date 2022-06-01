@@ -1,0 +1,19 @@
+.main-form__button {
+    font-family: "Montserrat";
+    background: #FF644B;
+    border: 1px solid #8B8B8B;
+    border-radius: 10px;
+    height: 63px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    transition: background-color .3s ease-in-out;
+}
+
+.main-form__button:hover {
+    background-color: #e0472e;
+}

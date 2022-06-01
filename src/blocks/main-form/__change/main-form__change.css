@@ -1,0 +1,11 @@
+.main-form__change {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #434242;
+    margin: 16px 0 0 0;
+}
