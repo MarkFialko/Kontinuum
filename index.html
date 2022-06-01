@@ -30,8 +30,9 @@
             <div class="main-form">
                 <h1 class="main-form__title">Вход в личный кабинет</h1>
                 <form data-password="1" class="form-group">
-                    <input data-phone type="tel" name="" placeholder="Телефон" maxlength="18">
-                    <input data-change type="password" name="" placeholder="Пароль">
+                    <input data-phone type="tel" name="" placeholder="Телефон" maxlength="18" required>
+                    <input data-change type="password" pattern="^[\w~'`!@#№?$%^&*()=+<>|/\\.,:;\[\]{} \x22-]{6,25}$"
+                           name="" placeholder="Пароль" required>
                     <button class="main-form__button">Войти</button>
                     <button class="main-form__change">Я забыл пароль</button>
                 </form>

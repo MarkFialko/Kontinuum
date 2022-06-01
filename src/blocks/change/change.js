@@ -8,6 +8,9 @@ function changeInputs(form) {
     const changeInput = form.querySelector("[data-change]");
     changeInput.placeholder = (changeInput.placeholder === "Пароль") ? "Имя и фамилия ученика" : "Пароль";
     changeInput.type = (changeInput.type === "password") ? "text" : "password";
+    changeInput.pattern = (changeInput.pattern === "") ?
+        "^[\w~'`!@#№?$%^&*()=+<>|/\\.,:;\[\]{} \x22-]{6,25}$" :
+        "^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$";
     changeInput.value = "";
 }
 
