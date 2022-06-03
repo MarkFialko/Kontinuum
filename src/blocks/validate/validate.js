@@ -1,5 +1,5 @@
 function getInputNumbersValue(input) {
-    return input.value.replace(/[^0-9]/g, "");
+    return input.value.replace(/[^\+\d+$]/g, "");
 }
 
 function onPhoneInput(e) {
@@ -19,34 +19,39 @@ function onPhoneInput(e) {
         return;
     }
 
-    if (["7", "8", "8"].includes(inputNumbersValue[0])) {
-        if (inputNumbersValue[0] === "9") {
-            inputNumbersValue = "7" + inputNumbersValue;
-        }
-        let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "+7";
-        formattedInputValue = firstSymbols + " ";
-        if (inputNumbersValue.length > 1) {
-            formattedInputValue += "(" + inputNumbersValue.substring(1, 4);
-        }
-        if (inputNumbersValue.length >= 5) {
-            formattedInputValue += ") " + inputNumbersValue.substring(4, 7);
-        }
-        if (inputNumbersValue.length >= 8) {
-            formattedInputValue += "-" + inputNumbersValue.substring(7, 9);
-        }
-        if (inputNumbersValue.length >= 10) {
-            formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
-        }
+    if (["7", "8", "+"].includes(inputNumbersValue[0])) {
+        formattedInputValue = "+7 (";
+
     } else {
-        formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
+        formattedInputValue = "+7 (" + inputNumbersValue;
+    }
+    if (inputNumbersValue.length > 1) {
+        formattedInputValue += inputNumbersValue.substring(2, 5);
+    }
+    if (inputNumbersValue.length > 4) {
+        formattedInputValue += ") ";
+    }
+    if (inputNumbersValue.length > 5) {
+        formattedInputValue += inputNumbersValue.substring(5, 8);
+    }
+    if (inputNumbersValue.length > 8) {
+        formattedInputValue += "-" + inputNumbersValue.substring(8, 10);
+    }
+    if (inputNumbersValue.length > 10) {
+        formattedInputValue += "-" + inputNumbersValue.substring(10, 12);
     }
     input.value = formattedInputValue;
 }
 
 function onPhoneKeyDown(e) {
     const input = e.target;
-    if (e.key === "Backspace" && getInputNumbersValue(input).length === 1) {
-        input.value = "";
+    if (e.key === "Backspace") {
+        if (input.value.length === 9) {
+            input.value = input.value.substring(0, input.value.length - 2);
+        }
+        if (input.value.length === 4) {
+            input.value = input.value.substring(0, input.value.length - 3);
+        }
     }
 }
 
