@@ -14,14 +14,16 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: 0px;
     width: 100%;
     height: 2px;
     transition: background-color .3s ease-in-out;
 }
 
-.menu__link:hover::before {
-    background-color: #434242;
+@media (min-width: 991.98px) {
+    .menu__link:hover::before {
+        background-color: #434242;
+    }
 }
 
 @media (max-width: 991.98px) {
